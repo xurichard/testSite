@@ -1,0 +1,104 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="assets/bootstrap-3.3.2-dist/css/bootstrap.css" />
+
+  </head>
+  <body>
+    <div class="header">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="#/">SallyCounter</a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#/">Home</a></li>
+              <!-- <li><a ng-href="#/">About</a></li>
+              <li><a ng-href="#/">Contact</a></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class = "row">
+
+        <div class = "col-md-3 col-center-block">
+          <style type="text/css">
+            .col-center-block {
+                float: none;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                background-image: url('BackgroundImage.png');
+                background-repeat: no-repeat;
+                height: 500px;
+                width: 750px;
+                background-size: 100%;
+            }
+          </style>
+          <h1 id="days"> 00 </h1>
+          <script type="text/javascript">
+              var div = document.getElementById("days");
+              var date1 = new Date();
+              var date2 = new Date("6/23/2015");
+              var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+              var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+              div.textContent = diffDays;
+              var text = div.textContent;
+          </script>
+          <style type="text/css">
+            h1 {
+                font-size: 200px;
+                padding-top:18%;
+                padding-left:11%;
+            }
+          </style>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class = "row">
+        <h2> How many days left until Sally comes to San Francisco, CA? <a id="day"> 00 </a> days. </h2>
+        <script type="text/javascript">
+              var div = document.getElementById("day");
+              var date1 = new Date();
+              var date2 = new Date("6/23/2015");
+              var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+              var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+              div.textContent = diffDays;
+              var text = div.textContent;
+          </script>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <p><span class="glyphicon glyphicon-heart"></span> Made by Richard Xu </p>
+      </div>
+    </div>
+
+
+
+</body>
+</html>
+

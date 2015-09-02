@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>SALLY GET BETTER PLS</title>
+		<meta name="description" content="Minimal Form Interface: Simplistic, single input view form" />
+		<meta name="keywords" content="form, minimal, interface, single input, big form, responsive form, transition" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="wrapper">
+				<header class="codrops-header">
+					<h1 id ="first">Hey Sally <span id ="second">Welcome back to not the hospital</span></h1>	
+				</header>
+				<form id="theForm" class="simform" autocomplete="off">
+					<div class="simform-inner">
+						<ol class="questions">
+							<li>
+								<span><label for="q1">What's your name?</label></span>
+								<input id="q1" name="q1" type="text"/>
+							</li>
+							<li>
+								<span><label for="q2">Where do you live?</label></span>
+								<input id="q2" name="q2" type="text"/>
+							</li>
+							<li>
+								<span><label for="q3">How do you feel?</label></span>
+								<input id="q3" name="q3" type="text"/>
+							</li>
+							<li>
+								<span><label for="q4">What's your favorite brand?</label></span>
+								<input id="q4" name="q4" type="text"/>
+							</li>
+							<li>
+								<span><label for="q5">What does Richard do that annoys you?</label></span>
+								<input id="q5" name="q5" type="text"/>
+							</li>
+							<li>
+								<span><label for="q6">Where are you going?</label></span>
+								<input id="q6" name="q6" type="text"/>
+							</li>
+						</ol><!-- /questions -->
+						<button class="submit" type="submit">Send answers</button>
+						<div class="controls">
+							<button class="next"></button>
+							<div class="progress"></div>
+							<span class="number">
+								<span class="number-current"></span>
+								<span class="number-total"></span>
+							</span>
+							<span class="error-message"></span>
+						</div><!-- / controls -->
+					</div><!-- /simform-inner -->
+					<span class="final-message"></span>
+					<span class="picture"></span>
+				</form><!-- /simform -->			
+			</div>
+		</div><!-- /container -->
+		<script src="js/classie.js"></script>
+		<script src="js/stepsForm.js"></script>
+		<script>
+			var theForm = document.getElementById( 'theForm' );
+
+			new stepsForm( theForm, {
+				onSubmit : function( form ) {
+					// hide form
+					classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
+
+					/*
+					form.submit()
+					or
+					AJAX request (maybe show loading indicator while we don't have an answer..)
+					*/
+					var img = document.createElement("IMG");
+
+					var options = ["images/1.jpg","images/2.jpg","images/3.png","images/4.png","images/5.png"]
+					var titles = ["The story of Happy Sally", "The story of Princess Sally", "The story of done-with-yo-shit Sally", "The story of Agar.io", "The story of Fatcat"];
+					var number = Math.floor((Math.random() * 5));
+					var title = titles[number];
+
+					img.src = options[number];
+					img.style.height = '200px';
+
+					/*
+					var oldImg = document.getElementById('oldImg');
+					document.getElementById('imgDiv').replaceChild(img, oldImg);
+					*/
+
+					// let's just simulate something...
+					var messageEl = theForm.querySelector( '.final-message' );
+					messageEl.innerHTML = 'On a sunny summer day, princess ' + q1.value + ', beloved by all of ' + q2.value + '-land, emerged from the hospital and went home. Her lovely assistant Richard asked if she was okay and she responded "I feel ' + q3.value + '" as she reached into her ' + q4.value + ' bag. But sadly, Richard was too busy ' + q5.value + ' to hear her as they drove to ' + q6.value + '.'
+					messageEl.style.fontSize = "xx-large"
+					messageEl.style.display = 'block';
+					messageEl.style.cssFloat = 'left';
+					messageEl.style.paddingBottom = '10px';
+					classie.addClass( messageEl, 'show' );
+
+					var messageTitle = document.getElementById("first");
+					messageTitle.innerHTML = title;
+
+					var messagePic = theForm.querySelector( '.picture' );
+					messagePic.appendChild(img);
+					messagePic.display = 'block';
+					messagePic.style.cssFloat = 'right';
+					messagePic.style.paddingTop = '50px';
+					messagePic.style.textAlign = 'center';
+					messagePic.style.width = '100%';
+					classie.addClass( messagePic, 'show' );
+
+				}
+			} );
+		</script>
+	</body>
+</html>
